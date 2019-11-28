@@ -1,0 +1,13 @@
+<h1>시내가 만든 고>.<</h1>
+
+{% for blog in blogs.all %}
+    <div class="container">
+        <a href="{% url 'detail' blog.id %}">
+                <h1>{{ blog.title }}</h1>
+        </a>
+            <p>{{ blog.pub_date }}</p>
+            <p>{{ blog.summary }}<a href="{% url 'detail' blog.id %}">....more</a></p>
+    </div>
+{% endfor %}
+<!-- 글 작성하기 버튼 누르면 포스트 페이지로 넘어감-->
+<p><a href="{% url 'post' %}">글 작성하기</a></p>
