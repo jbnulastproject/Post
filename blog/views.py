@@ -12,12 +12,12 @@ def detail(request, blog_id):
     return render(request,'detail.html',{'blog':blog_detail})
 
 def post(request):
-    return render(request,'blog/post.html')
+    return render(request,'post.html')
 
 def create(request):
     blog = Blog()
     blog.title = request.GET['title']
-    blog.body = request.GET['body']
+    blog.contents = request.GET['contents']
     blog.pub_date = timezone.datetime.now()
     blog.save()
     return redirect('/blog/' + str(blog.id))
