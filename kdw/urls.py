@@ -1,12 +1,10 @@
-
 from django.contrib import admin
-from django.urls import path
-import blog.views
+from django.urls import path, include
+from blog import urls
+from rest_framework import urls
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',blog.views.home,name="home"),
-    path('blog/<int:blog_id>/',blog.views.detail,name="detail"),
-    path('blog/post/',blog.views.post,name='post'),
-    path('blog/create/', blog.views.create, name='create'),
+    path('', include('blog.urls')),
 ]
